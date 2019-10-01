@@ -5,6 +5,7 @@
   "author": "Alex Kovalyov <a4.kovalyov@itransition.com>",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.4.3",
     "@types/next": "^8.0.6",
     "@types/react": "^16.9.3",
     "next": "^9.0.6",
