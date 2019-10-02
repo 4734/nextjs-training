@@ -8,23 +8,27 @@ import {
   createStyles,
   Theme as AugmentedTheme,
 } from '@material-ui/core/styles'
-import { brown } from '@material-ui/core/colors';
+import { blueGrey } from '@material-ui/core/colors';
+import Particles from 'react-particles-js';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: brown[400]
+      main: blueGrey[400]
     }
   },
 });
 
 const withLayout = ( Page ) => () => (
     <>
+
       <ThemeProvider theme={theme}>
         <Header />
         <Page />
         <Footer/>
+
       </ThemeProvider>
+
     </>
 );
 
