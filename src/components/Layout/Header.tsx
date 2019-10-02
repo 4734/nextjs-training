@@ -4,21 +4,20 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Particles from 'react-particles-js';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     grow: {
       flexGrow: 1,
+      height: '100px'
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -125,9 +124,78 @@ const Header = () => {
   return (
     <div className={classes.grow}>
       <AppBar position="static">
+        <Particles
+          params={{
+            "particles": {
+              "number": {
+                "value": 70,
+                "density": {
+                  "enable": true,
+                  "value_area": 700 // Denser the smaller the number.
+                }
+              },
+              "color": { // The color for every node, not the connecting lines.
+                "value": "#212121" // Or use an array of colors like ["#9b0000", "#001378", "#0b521f"]
+              },
+              "shape": {
+                "type": "circle", // Can show circle, edge (a square), triangle, polygon, star, img, or an array of multiple.
+                "stroke": { // The border
+                  "width": 1,
+                  "color": "#212121"
+                },
+                "polygon": { // if the shape is a polygon
+                  "nb_sides": 5
+                },
+                "image": { // If the shape is an image
+                  "src": "",
+                  "width": 100,
+                  "height": 100
+                }
+              },
+              "opacity": {
+                "value": 0.7,
+                "random": true
+              },
+              "size": {
+                "value": 10,
+                "random": true
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 200, // The radius before a line is added, the lower the number the more lines.
+                "color": "#212121",
+                "opacity": 0.5,
+                "width": 2
+              },
+              "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "top", // Move them off the canvas, either "none", "top", "right", "bottom", "left", "top-right", "bottom-right" et cetera...
+                "random": true,
+                "straight": false, // Whether they'll shift left and right while moving.
+                "out_mode": "out", // What it'll do when it reaches the end of the canvas, either "out" or "bounce".
+                "bounce": false,
+                "attract": { // Make them start to clump together while moving.
+                  "enable": true,
+                  "rotateX": 600,
+                  "rotateY": 1200
+                }
+              }
+            }
+          }}
+          style={{
+            position: 'absolute',
+            left: '0px',
+            right: '0px',
+
+            pointerEvents: 'none',
+            width: '100%',
+            maxHeight: '100px',
+          }}
+        />
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            The Coffee 2.0
+            Portal
           </Typography>
 
           <div className={classes.grow} />
@@ -169,5 +237,6 @@ const Header = () => {
       {renderMenu}
     </div>
   );
-}
+};
+
 export default Header;
